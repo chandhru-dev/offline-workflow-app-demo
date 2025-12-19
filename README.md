@@ -1,97 +1,68 @@
 # Offline Workflow App Demo (Public-Safe)
 
-A small **offline-first** web application that runs on **localhost** and demonstrates:
-- Python backend (FastAPI)
-- Simple frontend (HTML templates)
-- Local persistence (SQLite)
-- Workflow-driven screens (cases + steps)
-- An **AI-assisted development** approach with human verification
+An **offline-first, localhost-based full-stack web application** built with **Python**, created to demonstrate
+**real-world software engineering practices** such as workflow design, reliability, clean architecture,
+and **AI-assisted development with human ownership**.
 
-> **Disclaimer:** This is a **demo/template** inspired by real-world workflow software.
-> It does **not** include client code, confidential logic, or patient data.
+> ⚠️ **Disclaimer**  
+> This repository is a **public-safe demo/template** inspired by real-world workflow software.  
+> It contains **no client code, no proprietary logic, and no patient or medical data**.
 
 ---
 
-## Why this repo exists
-Recruiters often want to see **real code**.  
-My professional work involves an offline full‑stack application in the **robotic knee replacement surgery workflow** domain (confidential).  
-So this repo provides a **public-safe** example of the same software engineering patterns: offline-first, workflow screens, reliability checks, clean modular Python.
+## Why this repository exists
+
+Recruiters and interviewers often want to review **actual, runnable code**, not just resumes.
+
+My professional work involves building an **offline full-stack application** in the  
+**robotic knee replacement surgery workflow domain**. That production system is confidential.
+
+This repository therefore provides a **public-safe representation** of the same **engineering patterns** I use professionally:
+- offline-first application design  
+- workflow-driven user interfaces  
+- reliability through validation and local persistence  
+- clean, modular Python architecture  
 
 ---
 
-## Features
-- Create a “Case”
-- Track case status across steps (Setup → Plan → Execute → Review)
-- Persist locally in SQLite (no internet required)
-- Export a simple text report for a case
+## Key Features
+
+- Create and manage a **Case**
+- Track case progress across defined workflow steps  
+  *(Setup → Plan → Execute → Review)*
+- Fully **offline operation** using local SQLite storage
+- Simple **report export** for a case
+- Clean separation of UI, business logic, and storage
+- AI-assisted development with **human verification**
 
 ---
 
-## Tech
-- **Backend:** FastAPI
+## Technology Stack
+
+- **Backend:** FastAPI (Python)
 - **Frontend:** Jinja2 templates (server-rendered HTML)
-- **Storage:** SQLite
-- **Quality:** pytest + ruff (lint)
+- **Storage:** SQLite (local persistence)
+- **Quality & Tooling:** pytest, ruff (linting), GitHub Actions CI
 
 ---
 
-## Run locally (Windows / Linux / macOS)
+## Run Locally (Windows / Linux / macOS)
+
 ```bash
-# 1) Create venv
+# 1) Create virtual environment
 python -m venv .venv
 
-# 2) Activate
+# 2) Activate environment
 # Windows:
 .venv\Scripts\activate
-# macOS/Linux:
+# macOS / Linux:
 source .venv/bin/activate
 
-# 3) Install deps
+# 3) Install dependencies
 pip install -r requirements.txt
 
-# 4) Start the app
+# 4) Start the application
 uvicorn offline_workflow_app.web:app --reload
 
 # 5) Open in browser
 # http://127.0.0.1:8000
-```
-
-The SQLite DB is created in `./data/app.db` automatically.
-
----
-
-## Architecture (high level)
-
-```mermaid
-flowchart LR
-  UI[Browser UI (HTML)] --> API[FastAPI Routes]
-  API --> SVC[Service Layer]
-  SVC --> DB[(SQLite)]
-  SVC --> REP[Report Export]
-```
-
----
-
-## AI-assisted development (how I use AI professionally)
-I use AI tools to speed up:
-- scaffolding boilerplate (routes/templates)
-- debugging stack traces
-- refactoring suggestions
-- test case ideas
-
-But the final delivery is **human verified**:
-- review the code for correctness
-- run tests
-- validate edge cases (bad input, missing fields, etc.)
-
-See: `docs/AI_ASSISTED_DEV.md`
-
----
-
-## Screenshots / video
-Add anonymized UI screenshots in `docs/media/` and link them here.
-
----
-
-## License
-MIT — see `LICENSE`
